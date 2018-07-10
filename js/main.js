@@ -3,7 +3,7 @@ $(document).ready(function() {
 	Object.keys(allPokemon).forEach(function(pokemon, index) {
 		$('#pokemon').append($('<option>', {
 			value: pokemon,
-			text: pokemon + ' #' + allPokemon[pokemon].dex
+			text: '#' + allPokemon[pokemon].dex + ' - ' + pokemon
 		}));
 	});
 
