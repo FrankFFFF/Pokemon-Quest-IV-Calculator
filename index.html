@@ -21,49 +21,51 @@
 	<main class="container">
 		<div class="row pmq">
 			<div class="col-sm text-center">
-				<table class="table table-bordered table-dark text-center table-striped">
-					<tbody>
-						<tr>
-							<th>Pokémon</th>
-							<th>Level</th>
-						</tr>
-						<tr>
-							<td>
-								<select name="pokemon" id="pokemon" class="form-control" tabindex="1"></select>
-							</td>
-							<td>
-								<input type="number" class="form-control" name="level" id="level" min="1" max="100" placeholder="50" tabindex="2">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table table-bordered table-dark text-center table-striped">
-					<tbody>
-						<tr>
-							<th>Hit Points</th>
-							<th>Attack</th>
-						</tr>
-						<tr>
-							<td>
-								<input type="number" class="form-control" name="hitpoints" id="hitpoints" min="125" max="625" placeholder="125 - 625" tabindex="3">
-							</td>
-							<td>
-								<input type="number" class="form-control" name="attack" id="attack" min="75" max="575" placeholder="75 - 575" tabindex="4">
-							</td>
-						</tr>
-						<tr>
-							<th width="50%">Hit Points IV</th>
-							<th width="50%">Attack IV</th>
-						</tr>
-						<tr>
-							<td id="hitpoints_iv">N/A</td>
-							<td id="attack_iv">N/A</td>
-						</tr>
-					</tbody>
-				</table>
+				<form>
+					<table class="table table-bordered table-dark text-center table-striped">
+						<tbody>
+							<tr>
+								<th>Pokémon</th>
+								<th>Level</th>
+							</tr>
+							<tr>
+								<td>
+									<select name="pokemon" id="pokemon" class="form-control" tabindex="1"></select>
+								</td>
+								<td>
+									<input type="number" class="form-control" name="level" id="level" min="1" max="100" placeholder="50" tabindex="2">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-bordered table-dark text-center table-striped">
+						<tbody>
+							<tr>
+								<th>Hit Points</th>
+								<th>Attack</th>
+							</tr>
+							<tr>
+								<td>
+									<input type="number" class="form-control" name="hitpoints" id="hitpoints" min="125" max="625" placeholder="" tabindex="3">
+								</td>
+								<td>
+									<input type="number" class="form-control" name="attack" id="attack" min="75" max="575" placeholder="" tabindex="4">
+								</td>
+							</tr>
+							<tr>
+								<th width="50%">Hit Points IV</th>
+								<th width="50%">Attack IV</th>
+							</tr>
+							<tr>
+								<td id="hitpoints_iv">N/A</td>
+								<td id="attack_iv">N/A</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
 			</div>
 			<div class="col-sm text-center">
-				<img id="pokemon_img" src="https://www.serebii.net/quest/pokemon/001.png" class="align-middle">
+				<img id="pokemon_img" src="https://www.serebii.net/quest/pokemon/138.png" class="align-middle">
 			</div>
 		</div>
 	</main>

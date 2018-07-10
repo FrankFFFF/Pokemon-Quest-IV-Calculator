@@ -8,25 +8,31 @@ $(document).ready(function() {
 	});
 
 	$('#pokemon').change(function() {
-		var pokemon = allPokemon[$(this).val()];
-
-		// Update image top currently selected pokemon
-		document.getElementById('pokemon_img').src = pokemon.img
-
-		// Set minimum value, and placeholder value to current pokemons base values
-		document.getElementById('hitpoints').placeholder = pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500);
-		document.getElementById('hitpoints').min = pokemon['hitpoints'];
-		document.getElementById('hitpoints').max = pokemon['hitpoints'] + 500;
-		document.getElementById('attack').placeholder = pokemon['attack'] + ' - ' + (pokemon['attack'] + 500);
-		document.getElementById('attack').min = pokemon['attack'];
-		document.getElementById('attack').max = pokemon['attack'] + 500;
-
+		getPokemon(allPokemon[$(this).val()]);
 		updateFields();
 	});
 	$('input').change(function() {
 		updateFields();
 	})
+
+	// Make Omanyte the default Pokemon.
+	$('#pokemon').val("Omanyte");
+	getPokemon(allPokemon["Omanyte"]);
+	updateFields();
 });
+
+function getPokemon(pokemon) {
+	// Update image top currently selected pokemon
+	document.getElementById('pokemon_img').src = pokemon.img
+
+	// Set minimum value, and placeholder value to current pokemons base values
+	document.getElementById('hitpoints').placeholder = pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500);
+	document.getElementById('hitpoints').min = pokemon['hitpoints'];
+	document.getElementById('hitpoints').max = pokemon['hitpoints'] + 500;
+	document.getElementById('attack').placeholder = pokemon['attack'] + ' - ' + (pokemon['attack'] + 500);
+	document.getElementById('attack').min = pokemon['attack'];
+	document.getElementById('attack').max = pokemon['attack'] + 500;
+}
 
 function updateFields() {
 	formdata = {};
