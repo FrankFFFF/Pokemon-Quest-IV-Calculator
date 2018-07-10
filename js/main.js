@@ -38,8 +38,6 @@ function updateFields() {
 	// Update the valculated IV's
 	document.getElementById('hitpoints_iv').innerText = calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']);
 	document.getElementById('attack_iv').innerText = calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']);
-	// Add attack + hp then devide by 2 to get the total IV value
-	document.getElementById('total_iv').innerText = calcIV((pokemon['attack'] + pokemon['hitpoints']) / 2, (+formdata['attack'] + +formdata['hitpoints']) / 2, +formdata['level']);
 }
 
 function calcIV(base_attack, current_attack, level) {
