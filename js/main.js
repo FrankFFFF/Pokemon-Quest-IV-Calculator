@@ -8,47 +8,48 @@ $(document).ready(function() {
 	});
 
 	$('#pokemon').change(function() {
-		getPokemon(allPokemon[$(this).val()]);
+		getPokemon($(this).val());
 		updateFields();
 	});
+
 	$('input').change(function() {
 		updateFields();
 	})
 
 	// Make Omanyte the default Pokemon.
 	$('#pokemon').val("Omanyte");
-	getPokemon(allPokemon["Omanyte"]);
+	getPokemon("Omanyte");
 	updateFields();
 });
 
-function getPokemon(pokemon) {
-	// Update image top currently selected pokemon
-	document.getElementById('pokemon_img').src = pokemon.img
+function getPokemon(name) {
+	var pokemon = allPokemon[name];
 
-	// Set minimum value, and placeholder value to current pokemons base values
-	document.getElementById('hitpoints').placeholder = pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500);
-	document.getElementById('hitpoints').min = pokemon['hitpoints'];
-	document.getElementById('hitpoints').max = pokemon['hitpoints'] + 500;
-	document.getElementById('attack').placeholder = pokemon['attack'] + ' - ' + (pokemon['attack'] + 500);
-	document.getElementById('attack').min = pokemon['attack'];
-	document.getElementById('attack').max = pokemon['attack'] + 500;
+	$('#pokemon_img').attr('src', pokemon.img);
+	$('#hitpoints').attr('placeholder', pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500));
+	$('#hitpoints').attr('min', pokemon['hitpoints']);
+	$('#hitpoints').attr('max', pokemon['hitpoints'] + 500);
+	$('#attack').attr('placeholder', pokemon['attack'] + ' - ' + (pokemon['attack'] + 500));
+	$('#attack').attr('min', pokemon['attack']);
+	$('#attack').attr('max', pokemon['attack'] + 500);
 }
 
 function updateFields() {
 	formdata = {};
+
 	$("form").serializeArray().forEach(function(obj, index) {
 		formdata[obj.name] = obj.value;
 	});
-	pokemon = allPokemon[formdata['pokemon']];
 
-	// Update the valculated IV's
-	document.getElementById('hitpoints_iv').innerText = calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']);
-	document.getElementById('attack_iv').innerText = calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']);
+	var pokemon = allPokemon[formdata['pokemon']];
+	$('#hitpoints_iv').text(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
+	$('#attack_iv').text(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
 }
 
 function calcIV(base_attack, current_attack, level) {
 	base_attack += level;
 	var diff = current_attack - base_attack;
+
 	if (diff >= 0 && diff <= 10) // Brass Pot
 		return (diff * 10) + '% (brass)';
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
