@@ -52,3 +52,20 @@ body {
 	color: #636463;
 	border: none;
 }
+.pot {
+	border-radius: 6px;
+	font-weight: bold;
+	padding: 6px;
+}
+.pot.brass{
+	background-color: #a4a9a3;
+}
+.pot.bronze{
+	background-color: #be6a3b;
+}
+.pot.silver{
+	background-color: #cde1ea;
+}
+.pot.gold{
+	background-color: #c1a834;
+}

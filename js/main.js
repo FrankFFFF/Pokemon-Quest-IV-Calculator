@@ -42,24 +42,27 @@ function updateFields() {
 	});
 
 	var pokemon = pokemons[formdata['pokemon']];
-	$('#hitpoints_iv').text(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
-	$('#attack_iv').text(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
+	$('#hitpoints_iv').html(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
+	$('#attack_iv').html(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
 }
 
 function calcIV(base_attack, current_attack, level) {
 	base_attack += level;
 	var diff = current_attack - base_attack;
+	var pot = '<span class="pot ';
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
-		return (diff * 10) + '% (brass)';
+		pot += 'brass">' + (diff * 10) + '% (Brass)';
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
-		return ((diff - 50) * 2) + '% (bronze)';
+		pot += 'bronze">' + ((diff - 50) * 2) + '% (Bronze)';
 	else if (diff >= 100 && diff <= 250) // Silver Pot (serebii says it's a range of 100, but i have multiple pokemon in the range of 150 - mobile edition)
-		return (diff - 150) + '% (silver)';
+		pot += 'silver">' + (diff - 150) + '% (Silver)';
 	else if (diff >= 251 && diff <= 299) // No pokemon should be in this range (maybe silver, but have yet to find any)
-		return '¯\\_(ツ)_/¯';
+		pot += 'silver">' + '¯\\_(ツ)_/¯';
 	else if (diff >= 300 && diff <= 400) // Gold Pot
-		return (diff - 300) + '% (gold)';
+		pot += 'gold">' + (diff - 300) + '% (Gold)';
 	else // Still entering value ?
-		return `N/A`;
+		pot += '">' + `N/A`;
+
+	return pot + '</span>';
 }
