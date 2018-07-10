@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	// Add each of the pokemon options to the select element
-	Object.keys(allPokemon).forEach(function(pokemon, index) {
+	Object.keys(pokemons).forEach(function(pokemon, index) {
 		$('#pokemon').append($('<option>', {
 			value: pokemon,
-			text: '#' + allPokemon[pokemon].dex + ' - ' + pokemon
+			text: '#' + pokemons[pokemon].dex + ' - ' + pokemon
 		}));
 	});
 
@@ -23,9 +23,9 @@ $(document).ready(function() {
 });
 
 function getPokemon(name) {
-	var pokemon = allPokemon[name];
+	var pokemon = pokemons[name];
 
-	$('#pokemon_img').attr('src', pokemon.img);
+	$('#pokemon_img').attr('src', 'https://www.serebii.net/quest/pokemon/' + pokemon.dex + '.png');
 	$('#hitpoints').attr('placeholder', pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500));
 	$('#hitpoints').attr('min', pokemon['hitpoints']);
 	$('#hitpoints').attr('max', pokemon['hitpoints'] + 500);
@@ -41,7 +41,7 @@ function updateFields() {
 		formdata[obj.name] = obj.value;
 	});
 
-	var pokemon = allPokemon[formdata['pokemon']];
+	var pokemon = pokemons[formdata['pokemon']];
 	$('#hitpoints_iv').text(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
 	$('#attack_iv').text(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
 }
