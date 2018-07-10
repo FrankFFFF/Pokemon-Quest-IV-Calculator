@@ -1,6 +1,6 @@
 body {
      padding-top: 54px;
-     background-image: url(../images/background/yellow-squares.png);
+     background: #313231;
 }
  @media (min-width: 992px) {
      body {
@@ -12,4 +12,33 @@ body {
 }
  .invert {
      filter: invert(1);
+}
+.row {
+	margin-top: 15px;
+}
+.pmq {
+	background-color: #636463;
+	border-radius: 30px;
+}
+.pmq th {
+	background-color: #8d8e8d;
+	color: #333433;
+}
+.pmq td {
+	background-color: #818381;
+	color: #333433;
+}
+.pmq img {
+	background-color: #313231;
+	border-radius: 30px;
+	padding: 15px 35px;
+
+}
+.col-sm {
+	padding: 30px;
+}
+.form-control {
+	background-color: #313231;
+	color: #636463;
+	border: none;
 }
