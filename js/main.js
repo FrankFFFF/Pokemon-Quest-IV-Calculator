@@ -17,39 +17,44 @@ $(document).ready(function() {
 	})
 
 	// Make Omanyte the default Pokemon.
-	$('#pokemon').val("Omanyte");
-	getPokemon("Omanyte");
+	$('#pokemon').val('Omanyte');
+	getPokemon('Omanyte');
 	updateFields();
 });
 
 function getPokemon(name) {
-	var pokemon = pokemons[name];
+	var pokemon = pokemons[name], serebii = 'https://www.serebii.net/quest/pokemon/' + pokemon.dex;
 
-	$('#pokemon_img').attr('src', 'https://www.serebii.net/quest/pokemon/' + pokemon.dex + '.png');
-	$('#hitpoints').attr('placeholder', pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500));
-	$('#hitpoints').attr('min', pokemon['hitpoints']);
-	$('#hitpoints').attr('max', pokemon['hitpoints'] + 500);
-	$('#attack').attr('placeholder', pokemon['attack'] + ' - ' + (pokemon['attack'] + 500));
-	$('#attack').attr('min', pokemon['attack']);
-	$('#attack').attr('max', pokemon['attack'] + 500);
+	$('#serebii').attr('href', serebii + '.shtml').children().attr('src', serebii + '.png');
+
+	$('#hitpoints').attr({
+		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
+		'min': pokemon['hitpoints'],
+		'max': pokemon['hitpoints'] + 500
+	});
+
+	$('#attack').attr({
+		'placeholder': pokemon['attack'] + ' - ' + (pokemon['attack'] + 500),
+		'min': pokemon['attack'],
+		'max': pokemon['attack'] + 500
+	});
 }
 
 function updateFields() {
-	formdata = {};
+	var formdata = pokemon = {};
 
 	$("form").serializeArray().forEach(function(obj, index) {
 		formdata[obj.name] = obj.value;
 	});
 
-	var pokemon = pokemons[formdata['pokemon']];
+	pokemon = pokemons[formdata['pokemon']];
 	$('#hitpoints_iv').html(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
 	$('#attack_iv').html(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
 }
 
 function calcIV(base_attack, current_attack, level) {
 	base_attack += level;
-	var diff = current_attack - base_attack;
-	var pot = '<span class="pot ';
+	var diff = current_attack - base_attack, pot = '<span class="pot ';
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
 		pot += 'brass">' + (diff * 10) + '% (Brass)';
