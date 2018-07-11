@@ -23,11 +23,11 @@ body {
 	margin-right: 5px;
 }
 .row {
-	margin-top: 25px;
+	margin: 25px 0 0 0;
 }
 .pmq {
 	background-color: #636463;
-	border-radius: 30px;
+	border-radius: 20px;
 }
 .pmq .td, .pmq th {
 	background-color: #8d8e8d;
@@ -46,7 +46,7 @@ body {
 
 }
 .col-sm {
-	padding: 30px;
+	padding: 10px 20px;
 }
 .form-control {
 	background-color: #313231;
