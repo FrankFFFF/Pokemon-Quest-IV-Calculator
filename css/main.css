@@ -1,71 +1,81 @@
 body {
 	background: #313231;
 }
- @media (min-width: 992px) {
-     body {
-         padding-top: 56px;
-    }
+
+.icon {
+	height: 30px;
 }
- .icon {
-     height: 30px;
+
+.invert {
+	filter: invert(1);
 }
- .invert {
-     filter: invert(1);
-}
+
 .navbar-brand {
 	color: darkorange !important;
 	font-weight: bolder;
 }
+
 .navbar-brand img {
 	width: 80px;
 	vertical-align: text-bottom;
 	margin-right: 5px;
 }
+
 .row {
-	margin: 1rem 0 0 0;
+	margin: 1rem 0;
 }
+
 .pmq {
 	background-color: #636463;
 	border-radius: 1.25rem;
 }
+
 .pmq .td, .pmq th {
 	background-color: #8d8e8d;
 	color: #333433;
 	font-weight: bold;
 }
+
 .pmq td {
 	background-color: #818381;
 	color: #333433;
 }
+
 .pmq img {
 	background-color: #313231;
 	border-radius: 0.75rem;
 	padding: 0.5rem 0.75rem;
 	width: 6rem;
-
 }
+
 .col-sm {
 	padding: 1rem 1.25rem;
 }
+
 .form-control {
 	background-color: #313231;
 	color: #636463;
 	border: none;
 }
+
 .pot {
 	border-radius: 6px;
 	font-weight: bold;
 	padding: 6px;
 }
-.pot.brass{
+
+.pot.brass {
 	background-color: #a4a9a3;
 }
-.pot.bronze{
+
+.pot.bronze {
 	background-color: #be6a3b;
 }
-.pot.silver{
+
+.pot.silver {
 	background-color: #cde1ea;
 }
-.pot.gold{
+
+.pot.gold {
 	background-color: #c1a834;
 }
