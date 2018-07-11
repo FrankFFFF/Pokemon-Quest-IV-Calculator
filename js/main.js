@@ -1,31 +1,36 @@
+var pokemon;
+
 $(document).ready(function() {
 	// Add each of the pokemon options to the select element
-	Object.keys(pokemons).forEach(function(pokemon, index) {
+	Object.keys(pokemons).forEach(function(name, index) {
 		$('#pokemon').append($('<option>', {
-			value: pokemon,
-			text: '#' + pokemons[pokemon].dex + ' - ' + pokemon
+			value: name,
+			text: '#' + pokemons[name].dex + ' - ' + name
 		}));
 	});
 
 	$('#pokemon').change(function() {
-		getPokemon($(this).val());
+		pokemon = pokemons[$(this).val()];
+		getPokemon();
 		updateFields();
 	});
 
-	$('input').change(function() {
+	$('input').keyup(function() {
 		updateFields();
 	})
 
 	// Make Omanyte the default Pokemon.
-	$('#pokemon').val('Omanyte');
-	getPokemon('Omanyte');
+	pokemon = pokemons[$('#pokemon').val('Omanyte').val()];
+	getPokemon();
 	updateFields();
 });
 
-function getPokemon(name) {
-	var pokemon = pokemons[name], serebii = 'https://www.serebii.net/quest/pokemon/' + pokemon.dex;
+function getPokemon() {
+	var serebii = 'https://www.serebii.net/quest/pokemon/' + pokemon.dex;
 
-	$('#serebii').attr('href', serebii + '.shtml').children().attr('src', serebii + '.png');
+	$('#serebii')
+		.attr('href', serebii + '.shtml')
+		.children().attr('src', serebii + '.png');
 
 	$('#hitpoints').attr({
 		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
@@ -41,20 +46,15 @@ function getPokemon(name) {
 }
 
 function updateFields() {
-	var formdata = pokemon = {};
+	var level = +$('#level').val();
 
-	$("form").serializeArray().forEach(function(obj, index) {
-		formdata[obj.name] = obj.value;
-	});
-
-	pokemon = pokemons[formdata['pokemon']];
-	$('#hitpoints_iv').html(calcIV(pokemon['hitpoints'], +formdata['hitpoints'], +formdata['level']));
-	$('#attack_iv').html(calcIV(pokemon['attack'], +formdata['attack'], +formdata['level']));
+	$('#hitpoints_iv').html(calcIV(pokemon['hitpoints'], +$('#hitpoints').val(), level));
+	$('#attack_iv').html(calcIV(pokemon['attack'], +$('#attack').val(), level));
 }
 
-function calcIV(base_attack, current_attack, level) {
-	base_attack += level;
-	var diff = current_attack - base_attack, pot = '<span class="pot ';
+function calcIV(base, current, level) {
+	var diff = current - (base + level),
+		pot = '<span class="pot ';
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
 		pot += 'brass">' + (diff * 10) + '% (Brass)';
