@@ -29,9 +29,10 @@ body {
 	background-color: #636463;
 	border-radius: 30px;
 }
-.pmq th {
+.pmq .td, .pmq th {
 	background-color: #8d8e8d;
 	color: #333433;
+	font-weight: bold;
 }
 .pmq td {
 	background-color: #818381;
@@ -39,9 +40,9 @@ body {
 }
 .pmq img {
 	background-color: #313231;
-	border-radius: 5px;
+	border-radius: 10px;
 	padding: 5px 10px;
-	width: 48px;
+	width: 90px;
 
 }
 .col-sm {
