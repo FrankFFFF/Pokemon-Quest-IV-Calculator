@@ -1,80 +1,85 @@
+<!doctype html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="theme-color" content="#313231" />
-	<meta name="description" content="Pokemon Quest IV Calculator">
-	<meta name="author" content="RedSparr0w,FrankFFFF">
-	<title>Pokemon Quest IV Calculator</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	<link href="./css/main.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#313231" />
+    <meta name="description" content="Pokemon Quest IV Calculator">
+    <meta name="author" content="RedSparr0w,FrankFFFF">
+    <title>Pokemon Quest IV Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="./css/main.css" rel="stylesheet">
 </head>
+
 <body>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<span class="navbar-brand"><img src="https://pokemonquest.pokemon.com/assets/locales/en-us/logo.png" />IV Calculator</span>
-			<a href="https://github.com/FrankFFFF/Pokemon-Quest-IV-Calculator" target="_blank">
-			<img class="icon invert" src="./images/icons/github.svg" />
-			</a>
-		</div>
-	</nav>
-	<!-- Page Content -->
-	<main class="container">
-		<div class="row pmq">
-			<div class="col-sm text-center">
-				<form>
-					<table class="table table-bordered table-dark text-center table-striped">
-						<tbody>
-							<tr>
-								<td rowspan="2">
-									<img id="pokemon_img" src="https://www.serebii.net/quest/pokemon/138.png">
-								</td>
-								<td class="td">Pokémon</td>
-								<td class="td">Level</td>
-							</tr>
-							<tr>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <span class="navbar-brand"><img src="https://pokemonquest.pokemon.com/assets/locales/en-us/logo.png" alt="Pokémon Quest">IV Calculator</span>
+            <a href="https://github.com/FrankFFFF/Pokemon-Quest-IV-Calculator" target="_blank">
+                <img class="icon invert" src="./images/icons/github.svg" alt="GitHub">
+            </a>
+        </div>
+    </nav>
 
-								<td>
-									<select name="pokemon" id="pokemon" class="form-control" tabindex="1"></select>
-								</td>
-								<td>
-									<input type="number" class="form-control" name="level" id="level" min="1" max="100" placeholder="50" tabindex="2">
-								</td>
-							</tr>
-						</tbody>
-					</table>
+    <main class="container">
+        <div class="row pmq">
+            <div class="col-sm text-center">
+                <form>
+                    <table class="table table-bordered table-dark text-center table-striped">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">
+                                    <img id="pokemon_img" src="https://www.serebii.net/quest/pokemon/138.png" alt="Pokémon">
+                                </td>
+                                <td class="td">Pokémon</td>
+                                <td class="td">Level</td>
+                            </tr>
+                            <tr>
 
-					<table class="table table-bordered table-dark text-center table-striped">
-						<tbody>
-							<tr>
-								<th>Hit Points</th>
-								<th>Attack</th>
-							</tr>
-							<tr>
-								<td>
-									<input type="number" class="form-control" name="hitpoints" id="hitpoints" min="125" max="625" placeholder="" tabindex="3">
-								</td>
-								<td>
-									<input type="number" class="form-control" name="attack" id="attack" min="75" max="575" placeholder="" tabindex="4">
-								</td>
-							</tr>
-							<tr>
-								<th width="50%">Hit Points IV</th>
-								<th width="50%">Attack IV</th>
-							</tr>
-							<tr>
-								<td id="hitpoints_iv">N/A</td>
-								<td id="attack_iv">N/A</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
-			</div>
-		</div>
-	</main>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                                <td>
+                                    <select name="pokemon" id="pokemon" class="form-control" tabindex="1"></select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" name="level" id="level" min="1" max="100" placeholder="50" tabindex="2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered table-dark text-center table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Hit Points</th>
+                                <th>Attack</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" class="form-control" name="hitpoints" id="hitpoints" min="125" max="625" placeholder="" tabindex="3">
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" name="attack" id="attack" min="75" max="575" placeholder="" tabindex="4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Hit Points IV</th>
+                                <th>Attack IV</th>
+                            </tr>
+                            <tr>
+                                <td id="hitpoints_iv">N/A</td>
+                                <td id="attack_iv">N/A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	<script src="./js/pokemons.min.js"></script>
-	<script src="./js/main.js"></script>
+    <script src="./js/pokemons.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
+</html>
