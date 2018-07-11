@@ -1,6 +1,5 @@
 body {
-     padding-top: 54px;
-     background: #313231;
+	background: #313231;
 }
  @media (min-width: 992px) {
      body {
@@ -23,11 +22,11 @@ body {
 	margin-right: 5px;
 }
 .row {
-	margin: 25px 0 0 0;
+	margin: 1rem 0 0 0;
 }
 .pmq {
 	background-color: #636463;
-	border-radius: 20px;
+	border-radius: 1.25rem;
 }
 .pmq .td, .pmq th {
 	background-color: #8d8e8d;
@@ -40,13 +39,13 @@ body {
 }
 .pmq img {
 	background-color: #313231;
-	border-radius: 10px;
-	padding: 5px 10px;
-	width: 90px;
+	border-radius: 0.75rem;
+	padding: 0.5rem 0.75rem;
+	width: 6rem;
 
 }
 .col-sm {
-	padding: 10px 20px;
+	padding: 1rem 1.25rem;
 }
 .form-control {
 	background-color: #313231;
