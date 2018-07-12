@@ -19,8 +19,7 @@ $(document).ready(function() {
 		updateFields();
 	})
 
-	// Make Omanyte the default Pokemon.
-	pokemon = pokemons[$('#pokemon').val('Omanyte').val()];
+	pokemon = pokemons[$('#pokemon').val()];
 	getPokemon();
 	updateFields();
 });
