@@ -49,13 +49,13 @@ function getPokemon() {
 		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
 		'min': pokemon['hitpoints'],
 		'max': pokemon['hitpoints'] + 500
-	});
+	}).val('');
 
 	$('#attack').attr({
 		'placeholder': pokemon['attack'] + ' - ' + (pokemon['attack'] + 500),
 		'min': pokemon['attack'],
 		'max': pokemon['attack'] + 500
-	});
+	}).val('');
 }
 
 function updateFields() {
