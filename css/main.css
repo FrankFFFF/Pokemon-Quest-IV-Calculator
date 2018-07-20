@@ -34,6 +34,8 @@ body {
 	background-color: #8d8e8d;
 	color: #333433;
 	font-weight: bold;
+	padding: 10px !important;
+	text-align: center;
 }
 
 .pmq td {
@@ -78,4 +80,13 @@ body {
 
 .pot.gold {
 	background-color: #c1a834;
+}
+
+/* tmp for bootstrap 3, don't have time to fix it all */
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #313231;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	width: auto;
 }

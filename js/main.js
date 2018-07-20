@@ -1,11 +1,17 @@
 var pokemon;
 
 $(document).ready(function() {
-	// Add each of the pokemon options to the select element
-	Object.keys(pokemons).forEach(function(name, index) {
+	$.each(pokemons, function(name, index) {
+		// Searchability by type
+		var types = '';
+		$.each(pokemons[name].types, function(i, val) {
+			types += val + ' ';
+		});
+
 		$('#pokemon').append($('<option>', {
 			value: name,
-			text: '#' + pokemons[name].dex + ' - ' + name
+			text: name,
+			'data-tokens': types,
 		}));
 	});
 
@@ -22,6 +28,14 @@ $(document).ready(function() {
 	pokemon = pokemons[$('#pokemon').val()];
 	getPokemon();
 	updateFields();
+
+	$('#pokemon').attr({
+		'class': 'selectpicker',
+		'data-live-search': true
+	}).selectpicker('render');
+
+	// HACK: tmp, or table overflow
+	$('#level').parent().css('width', '20%');
 });
 
 function getPokemon() {
