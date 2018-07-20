@@ -49,7 +49,7 @@ function getPokemon() {
 		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
 		'min': pokemon['hitpoints'],
 		'max': pokemon['hitpoints'] + 500
-	}).val('');
+	}).val(''); // Why the fuck value doesn't work in attr()???
 
 	$('#attack').attr({
 		'placeholder': pokemon['attack'] + ' - ' + (pokemon['attack'] + 500),
@@ -73,10 +73,8 @@ function calcIV(base, current, level) {
 		pot += 'brass">' + (diff * 10) + '% (Brass)';
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
 		pot += 'bronze">' + ((diff - 50) * 2) + '% (Bronze)';
-	else if (diff >= 100 && diff <= 250) // Silver Pot (serebii says it's a range of 100, but i have multiple pokemon in the range of 150 - mobile edition)
+	else if (diff >= 150 && diff <= 250) // Silver Pot
 		pot += 'silver">' + (diff - 150) + '% (Silver)';
-	else if (diff >= 251 && diff <= 299) // No pokemon should be in this range (maybe silver, but have yet to find any)
-		pot += '">¯\\_(ツ)_/¯';
 	else if (diff >= 300 && diff <= 400) // Gold Pot
 		pot += 'gold">' + (diff - 300) + '% (Gold)';
 	else // Still entering value ?
