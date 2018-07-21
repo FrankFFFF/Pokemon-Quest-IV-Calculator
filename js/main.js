@@ -45,6 +45,8 @@ function getPokemon() {
 		.attr('href', serebii + '.shtml')
 		.children().attr('src', serebii + '.png');
 
+	$('#level').val('');
+
 	$('#hitpoints').attr({
 		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
 		'min': pokemon['hitpoints'],
