@@ -12,10 +12,11 @@ body {
 
 .navbar-brand {
 	color: darkorange !important;
-	font-weight: bolder;
+	font-weight: 900;
 }
 
 .navbar-brand img {
+	display: inline;
 	width: 80px;
 	vertical-align: text-bottom;
 	margin-right: 5px;

@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('#pokemon').change(function() {
 		pokemon = pokemons[$(this).val()];
 		getPokemon();
-		updateFields();
+		$('input').val('');
 	});
 
 	$('input').keyup(function() {
@@ -27,7 +27,6 @@ $(document).ready(function() {
 
 	pokemon = pokemons[$('#pokemon').val()];
 	getPokemon();
-	updateFields();
 
 	$('#pokemon').attr({
 		'class': 'selectpicker',
@@ -45,19 +44,17 @@ function getPokemon() {
 		.attr('href', serebii + '.shtml')
 		.children().attr('src', serebii + '.png');
 
-	$('#level').val('');
-
 	$('#hitpoints').attr({
 		'placeholder': pokemon['hitpoints'] + ' - ' + (pokemon['hitpoints'] + 500),
 		'min': pokemon['hitpoints'],
 		'max': pokemon['hitpoints'] + 500
-	}).val(''); // Why the fuck value doesn't work in attr()???
+	});
 
 	$('#attack').attr({
 		'placeholder': pokemon['attack'] + ' - ' + (pokemon['attack'] + 500),
 		'min': pokemon['attack'],
 		'max': pokemon['attack'] + 500
-	}).val('');
+	});
 }
 
 function updateFields() {
