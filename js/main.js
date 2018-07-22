@@ -3,7 +3,7 @@ var pokemon;
 $(document).ready(function() {
 	$.each(pokemons, function(name, index) {
 		// Searchability by type
-		var types = name + ' ';
+		var types = name + ' ' + pokemons[name].fight_style + ' ';
 		$.each(pokemons[name].types, function(i, val) {
 			types += val + ' ';
 		});
