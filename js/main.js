@@ -1,17 +1,17 @@
 var pokemon;
 
 $(document).ready(function() {
-	$.each(pokemons, function(name, index) {
+	$.each(pokemons, function(name, i) {
 		// Searchability by type
 		var types = name + ' ' + pokemons[name].fight_style + ' ';
-		$.each(pokemons[name].types, function(i, val) {
-			types += val + ' ';
+		$.each(pokemons[name].types, function(j, type) {
+			types += type + ' ';
 		});
 
 		$('#pokemon').append($('<option>', {
 			value: name,
 			text: name,
-			'data-tokens': types,
+			'data-tokens': types
 		}));
 	});
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	});
 
 	$('input').keyup(function() {
-		updateFields();
+		updateFields(this.id);
 	})
 
 	pokemon = pokemons[$('#pokemon').val()];
@@ -57,24 +57,46 @@ function getPokemon() {
 	});
 }
 
-function updateFields() {
+function updateFields(field) {
 	var level = +$('#level').val();
 
-	$('#hitpoints_iv').html(calcIV(pokemon['hitpoints'], +$('#hitpoints').val(), level));
-	$('#attack_iv').html(calcIV(pokemon['attack'], +$('#attack').val(), level));
+	if (!level) {
+		$('#level').focus();
+		return;
+	}
+
+	$('#' + field + '_iv').html(calcIV(pokemon[field], +$('#' + field).val(), level));
 }
 
 function calcIV(base, current, level) {
-	var diff = current - (base + level);
+	var diff = current - (base + level),
+		iv = {
+			'value': 0,
+			'pot': ''
+		};
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
-		return (diff * 10) + '<sup class="brass">Brass</sup>';
+		result = {
+			'value': (diff * 10),
+			'pot': 'brass'
+		}
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
-		return ((diff - 50) * 2) + '<sup class="bronze">Bronze</sup>';
+		result = {
+			'value': ((diff - 50) * 2),
+			'pot': 'bronze'
+		}
 	else if (diff >= 150 && diff <= 250) // Silver Pot
-		return (diff - 150) + '<sup class="silver">Silver</sup>';
+		result = {
+			'value':(diff - 150),
+			'pot': 'silver'
+		}
 	else if (diff >= 300 && diff <= 400) // Gold Pot
-		return (diff - 300) + '<sup class="gold">Gold</sup>';
+		result = {
+			'value': (diff - 300),
+			'pot': 'gold'
+		}
 	else // Still entering value ?
 		return 'N/A';
+
+	return result.value + '<sup class="' + result.pot +'">' + result.pot + '</sup>'
 }
