@@ -73,27 +73,27 @@ function calcIV(base, current, level) {
 	iv = {'value': 0, 'pot': ''};
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
-		result = {
+		iv = {
 			'value': (diff * 10),
 			'pot': 'brass'
 		}
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
-		result = {
+		iv = {
 			'value': ((diff - 50) * 2),
 			'pot': 'bronze'
 		}
 	else if (diff >= 150 && diff <= 250) // Silver Pot
-		result = {
+		iv = {
 			'value':(diff - 150),
 			'pot': 'silver'
 		}
 	else if (diff >= 300 && diff <= 400) // Gold Pot
-		result = {
+		iv = {
 			'value': (diff - 300),
 			'pot': 'gold'
 		}
 	else // Still entering value ?
 		return 'N/A';
 
-	return result.value + '<sup class="' + result.pot +'">' + result.pot + '</sup>'
+	return iv.value + '<sup class="' + iv.pot +'">' + iv.pot + '</sup>'
 }
