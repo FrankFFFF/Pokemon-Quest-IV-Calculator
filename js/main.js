@@ -65,19 +65,16 @@ function updateFields() {
 }
 
 function calcIV(base, current, level) {
-	var diff = current - (base + level),
-		pot = '<span class="pot ';
+	var diff = current - (base + level);
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
-		pot += 'brass">' + (diff * 10) + '% (Brass)';
+		return (diff * 10) + '<sup class="brass">Brass</sup>';
 	else if (diff >= 50 && diff <= 100) // Bronze Pot
-		pot += 'bronze">' + ((diff - 50) * 2) + '% (Bronze)';
+		return ((diff - 50) * 2) + '<sup class="bronze">Bronze</sup>';
 	else if (diff >= 150 && diff <= 250) // Silver Pot
-		pot += 'silver">' + (diff - 150) + '% (Silver)';
+		return (diff - 150) + '<sup class="silver">Silver</sup>';
 	else if (diff >= 300 && diff <= 400) // Gold Pot
-		pot += 'gold">' + (diff - 300) + '% (Gold)';
+		return (diff - 300) + '<sup class="gold">Gold</sup>';
 	else // Still entering value ?
-		pot += '">N/A';
-
-	return pot + '</span>';
+		return 'N/A';
 }

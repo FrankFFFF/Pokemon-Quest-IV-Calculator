@@ -28,7 +28,10 @@ body {
 
 .pmq {
 	background-color: #636463;
+	border: 20px solid #636463;
 	border-radius: 1.25rem;
+	margin: 0 auto;
+	padding: 0;
 }
 
 .pmq .td, .pmq th {
@@ -48,39 +51,41 @@ body {
 	background-color: #313231;
 	border-radius: 0.75rem;
 	padding: 0.5rem 0.75rem;
-	width: 6rem;
+	width: 7rem;
 }
 
 .col-sm {
 	padding: 1rem 1.25rem;
 }
 
+.calc th {
+	width: 25%;
+}
+
 .form-control {
 	background-color: #313231;
-	color: #636463;
+	color: #818381;
 	border: none;
 }
 
-.pot {
-	border-radius: 6px;
+sup {
 	font-weight: bold;
-	padding: 6px;
 }
 
-.pot.brass {
-	background-color: #a4a9a3;
+sup.brass {
+	color: #a4a9a3;
 }
 
-.pot.bronze {
-	background-color: #be6a3b;
+sup.bronze {
+	color: #be6a3b;
 }
 
-.pot.silver {
-	background-color: #cde1ea;
+sup.silver {
+	color: #cde1ea;
 }
 
-.pot.gold {
-	background-color: #c1a834;
+sup.gold {
+	color: #c1a834;
 }
 
 /* tmp for bootstrap 3, don't have time to fix it all */
