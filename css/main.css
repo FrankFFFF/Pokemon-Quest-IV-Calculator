@@ -28,7 +28,8 @@ body {
 
 .pmq {
 	background-color: #636463;
-	border: 20px solid #636463;
+	border: solid #636463;
+	border-width: 1rem 1.25rem;
 	border-radius: 1.25rem;
 	margin: 0 auto;
 	padding: 0;
