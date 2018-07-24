@@ -70,10 +70,7 @@ function updateFields(field) {
 
 function calcIV(base, current, level) {
 	var diff = current - (base + level),
-		iv = {
-			'value': 0,
-			'pot': ''
-		};
+	iv = {'value': 0, 'pot': ''};
 
 	if (diff >= 0 && diff <= 10) // Brass Pot
 		result = {
